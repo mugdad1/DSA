@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+      {
+          "label": "build",
+          "type": "shell",
+          "command": "bash",
+          "args": [
+              "-c",
+              "mkdir -p ./build/Debug && echo 'Directory created or already exists' && g++ -Wall -Wextra -Wpedantic -Wshadow -Wformat=2 -Wcast-align -Wconversion -Wsign-conversion -Wnull-dereference -g3 -O0 -c ${file} -o ./build/Debug/${fileBasenameNoExtension}.o && echo 'Build completed successfully'"
+          ],
+          "group": {
+              "kind": "build",
+              "isDefault": true
+          },
+          "problemMatcher": ["$gcc"],
+          "detail": "Compile C++ source file"
+      },
+      {
+          "label": "link",
+          "type": "shell",
+          "command": "bash",
+          "args": [
+              "-c",
+              "echo 'Linking object file...'; g++ ./build/Debug/${fileBasenameNoExtension}.o -o ./build/Debug/outDebug && echo 'Linking completed successfully.'"
+          ],
+          "group": "build",
+          "dependsOn": "build",
+          "problemMatcher": ["$gcc"],
+          "detail": "Link object file to create executable"
+      }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build and run",
+            "type": "shell",
+            "command": "/bin/bash",
+            "args": [
+                "-c",
+                "echo \"Compiling...\"; g++ -Wall -Wextra -Wpedantic -Wshadow -Wformat=2 -Wcast-align -Wconversion -Wsign-conversion -Wnull-dereference -g3 -O0 /home/mugdad/Documents/GitHub/DSA/cpp_basics/1.cpp -o ./build/Debug/outDebug 2>&1; if [ $? -eq 0 ]; then echo \"Build succeeded\"; ./build/Debug/outDebug; else echo \"Build failed\"; exit 1; fi; echo \"Program executed successfully\";"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Compile, link, and run C++ program"
+        }
+    ]
+}
