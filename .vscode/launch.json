@@ -1,33 +1,58 @@
 {
   "version": "2.0.0",
   "tasks": [
-      {
-          "label": "build",
-          "type": "shell",
-          "command": "bash",
-          "args": [
-              "-c",
-              "mkdir -p ./build/Debug && echo 'Directory created or already exists' && g++ -Wall -Wextra -Wpedantic -Wshadow -Wformat=2 -Wcast-align -Wconversion -Wsign-conversion -Wnull-dereference -g3 -O0 -c ${file} -o ./build/Debug/${fileBasenameNoExtension}.o && echo 'Build completed successfully'"
-          ],
-          "group": {
-              "kind": "build",
-              "isDefault": true
-          },
-          "problemMatcher": ["$gcc"],
-          "detail": "Compile C++ source file"
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "mkdir -p ./build/Debug && echo 'Directory created or already exists' && g++ -Wall -Wextra -Wpedantic -Wshadow -Wformat=2 -Wcast-align -Wconversion -Wsign-conversion -Wnull-dereference -g3 -O0 -c ${file} -o ./build/Debug/${fileBasenameNoExtension}.o && echo 'Build completed successfully'"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
       },
-      {
-          "label": "link",
-          "type": "shell",
-          "command": "bash",
-          "args": [
-              "-c",
-              "echo 'Linking object file...'; g++ ./build/Debug/${fileBasenameNoExtension}.o -o ./build/Debug/outDebug && echo 'Linking completed successfully.'"
-          ],
-          "group": "build",
-          "dependsOn": "build",
-          "problemMatcher": ["$gcc"],
-          "detail": "Link object file to create executable"
-      }
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "detail": "Compile C++ source file"
+    },
+    {
+      "label": "link",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "echo 'Linking object file...'; g++ ./build/Debug/${fileBasenameNoExtension}.o -o ./build/Debug/outDebug && echo 'Linking completed successfully.'"
+      ],
+      "group": "build",
+      "dependsOn": "build",
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "detail": "Link object file to create executable"
+    }
+  ],
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "cwd": "/home/mugdad/Documents/GitHub/DSA/cpp_basics",
+      "program": "/home/mugdad/Documents/GitHub/DSA/cpp_basics/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
   ]
 }
