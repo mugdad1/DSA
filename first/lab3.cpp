@@ -17,19 +17,20 @@ int factorial(int n) {
 }
 
 // Function to demonstrate a simple switch statement for grading
-char checkGrade(int score) {
+string checkGrade(int score) {
     switch (score / 10) {
         case 10:
+            return "g";
         case 9:
-            return 'A';
+            return "A";
         case 8:
-            return 'B';
+            return "B";
         case 7:
-            return 'C';
+            return "C";
         case 6:
-            return 'D';
+            return "D";
         default:
-            return 'F';
+            return "F";
     }
 }
 
@@ -46,11 +47,11 @@ void printStudents(Student* students, int count) {
 }
 
 // Function to demonstrate a while loop for countdown
-void countdown(int start) {
+void countdown(int start ) {
     cout << "Countdown:" << endl;
-    while (start > 0) {
+    while (start < 6) {
         cout << start << " ";
-        start--;
+        start++;
     }
     cout << "Blast off!" << endl;
 }
@@ -101,7 +102,7 @@ int main() {
     }
 
     // Countdown using a while loop
-    countdown(5);
+    countdown(0);
 
     return 0;
 }
