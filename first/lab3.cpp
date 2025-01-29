@@ -72,7 +72,6 @@ int main() {
         cout << "Score: ";
         cin >> students[i].score;
 
-        // Input for sex with validation
         char sexInput;
         while (true) {
             cout << "Enter 'M' for Male or 'F' for Female: ";
