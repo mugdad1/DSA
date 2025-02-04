@@ -1,69 +1,72 @@
-/*
-  Primitive Data Types
-  - int => Integer
-  --- Test Numbers
-  --- Test Floating Point vs Int
-  --- Store From -2147483648 To 2147483647
-  --- INT_MIN and INT_MAX Constants
-  --- Check Limits Header File limits.h
-  --- Test Size Of Data Types Without Variables & Use End Line
-
-  - = Assignment Operator
-*/
-
-#include <iomanip>
+#include <iomanip>   // For stream manipulators such as setw() etc.
 #include <iostream>
-#include <limits.h>
-
-using std::setw;
 using namespace std;
 
-int main() {
+// Function prototypes
+void displaySizeOfDataTypes();
+void performOperations();
+void displayArray(int arr[], int size);
+void initializeArray(int arr[], int size, int startValue);
+void Display2Array(int x[][2],int rows);
 
-  cout << sizeof(float) << endl;
-  cout << sizeof(double) << endl;
-  cout << sizeof(bool) << endl;
-  cout << sizeof(int) << endl;
-  cout << sizeof(char32_t) << endl;
-  cout << sizeof(short int) << endl;
-  int a;
-  int b;
-  int c;
-  float f;
-  float f1;
-  float f2;
-  a = 10;
-  b = 20;
-  cout << "enter f 1 and f2 to devide" << endl;
-  cin >> f1 >> f2;
-  c = a + b;
-  f = f1 / f2;
-  cout << c << endl;
-  cout << f << endl;
-  double balance[5] = {1000.0, 2.0, 3.4, 17.0, 50.0};
-  int n[10];
-   // n is an array of 10 integers
-  // initialize elements of array n to 0
-  for (int i = 0; i < 10; i++) {
-    n[i] = i + 100; // set element at location i to i + 100
-  }
-  cout << "Element" << setw(13) << "Value" << endl;
-  // output each array element's value
-  for (int j = 0; j < 10; j++) {
-    cout << setw(7) << j << setw(13) << n[j] << endl;
-  }
-  
-  
-  
-  
-  /*
-  int a[5][2] = {{0, 0}, {1, 2}, {2, 4}, {3, 6}, {4, 8}};
-  // output each array element's value
-  for (int i = 0; i < 5; i++)
-    for (int j = 0; j < 2; j++) {
-      cout << "a[" << i << "][" << j << "]: ";
-      cout << a[i][j] << endl;
+int main() {
+    system("cls");  // Clear previous outputs before running
+
+    displaySizeOfDataTypes();
+    performOperations();
+
+    int n[10];
+    initializeArray(n, 10, 100);
+    displayArray(n, 10);
+
+    int x[5][2] = { {0,0}, {1,2}, {2,4}, {3,6},{4,8} };
+    Display2Array(x, 5);
+
+    return 0;
+}
+
+// Function definitions
+void displaySizeOfDataTypes() {
+    cout << "Size of data types without variables:" << endl;
+    cout << setw(10) << sizeof(float) << " bytes" << endl;
+    cout << setw(10) << sizeof(double) << " bytes" << endl;
+    cout << setw(10) << sizeof(bool) << " bytes" << endl;
+    cout << setw(10) << sizeof(int) << " bytes" << endl;
+    cout << setw(10) << sizeof(char32_t) << " bytes" << endl;
+    cout << setw(10) << sizeof(short int) << " bytes" << endl;
+}
+
+void performOperations() {
+    int a = 10, b = 20, c;
+    float f1, f2, f;
+
+    cout << "Enter floats f1 and f2 to divide: ";
+    cin >> f1 >> f2;
+
+    c = a + b;
+    f = f1 / f2;
+
+    cout << "Sum (int): " << c << endl;
+    cout << "Quotient (float): " << f << endl;
+}
+
+void displayArray(int arr[], int size) {
+    cout << "\nElement" << setw(13) << "Value" << endl;
+    for (int i = 0; i < size; ++i) {
+        cout << setw(7) << i << setw(13) << arr[i] << endl;
     }
-*/
-  return 0;
+}
+
+void initializeArray(int arr[], int size, int startValue) {
+    for (int i = 0; i < size; ++i) {
+        arr[i] = i + startValue;
+    }
+}
+
+void Display2Array(int x[][2], int rows) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < 2; j++) {
+            cout << "x[" << i << "][" << j << "]: " << x[i][j] << endl;
+        }
+    }
 }
