@@ -4,6 +4,7 @@ using namespace std;
 
 // Function prototypes
 void displaySizeOfDataTypes();
+int add2num(int num1,int num2);
 void performOperations();
 void displayArray(int arr[], int size);
 void initializeArray(int arr[], int size, int startValue);
@@ -21,7 +22,8 @@ int main() {
 
     int x[5][2] = { {0,0}, {1,2}, {2,4}, {3,6},{4,8} };
     Display2Array(x, 5);
-
+    cout << add2num(4,5) <<endl;
+    
     return 0;
 }
 
@@ -35,7 +37,10 @@ void displaySizeOfDataTypes() {
     cout << setw(10) << sizeof(char32_t) << " bytes" << endl;
     cout << setw(10) << sizeof(short int) << " bytes" << endl;
 }
+int add2num(int num1,int num2){
+  return num1+num2;
 
+}
 void performOperations() {
     int a = 10, b = 20, c;
     float f1, f2, f;
@@ -70,3 +75,4 @@ void Display2Array(int x[][2], int rows) {
         }
     }
 }
+
