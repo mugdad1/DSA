@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
 int main() {
-  std::cout << "hh";
+  cout << "hh";
   return 0;
 }
