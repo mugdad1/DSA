@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
 std::vector<int> game(std::vector<int> list) {
   std::vector<int> result;
-  int n = list.size();
+  int n = static_cast<int>(list.size()); // Ensure integer division for size_t
   int lucyIndex = 0, jadeIndex = n - 1;
 
   while (lucyIndex <= jadeIndex) {
@@ -28,6 +29,11 @@ int main() {
   cout << "Enter the number of elements in the list: ";
   cin >> n;
 
+  if (n <= 0) {
+    cerr << "Invalid input. Number of elements must be greater than zero." << endl;
+    return 1;
+  }
+
   std::vector<int> list(n);
   cout << "Enter the list of numbers separated by space: ";
   for (int i = 0; i < n; ++i) {
@@ -37,7 +43,7 @@ int main() {
   std::vector<int> output = game(list);
 
   cout << "Output list: [";
-  for (size_t i = 0; i < output.size(); ++i) {
+  for (std::vector<int>::size_type i = 0; i < output.size(); ++i) {
     if (i > 0)
       cout << ", ";
     cout << output[i];
