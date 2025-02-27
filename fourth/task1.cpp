@@ -2,9 +2,11 @@
 #include <stack>
 #include <string>
 
+using std::cout;
+
 void menu() {
   std::cout << "Menu:\n";
-  std::cout << "1. Visit a new website\n";
+  cout << "1. Visit a new website\n";
   std::cout << "2. Go Back\n";
   std::cout << "3. Exit\n";
 }
@@ -12,6 +14,8 @@ void menu() {
 int main() {
   std::stack<std::string> browserStack; // Stack to hold visited URLs
   int choice;
+  std::cout<<"k";
+
   std::string url; // Declare url outside the switch statement
 
   while (true) {
