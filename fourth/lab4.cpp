@@ -21,6 +21,7 @@ void push() {
 }
 void pop() {
   int item;
+  cout << "f";
   if (st.top == -1) /* stack empty condition */
     cout << "Stack Underflow\n";
   else {
