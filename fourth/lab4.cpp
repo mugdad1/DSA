@@ -10,6 +10,7 @@ Stack st;
 
 void push() {
   int item;
+  cout << "d";
   if (st.top == (MAX - 1))
     cout << "Stack Overflow\n";
   else {
