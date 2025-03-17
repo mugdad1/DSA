@@ -1,3 +1,5 @@
 #include <iostream>
-using namespace std;
-int main() { return 0; }
+int main() {
+  std::cout << "hi";
+  return 0;
+}

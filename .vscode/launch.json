@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "mkdir -p ${workspaceFolder}/build/Debug && echo 'Directory created or already exists' && g++ -Wall -Wextra -Wpedantic -Wshadow -Wformat=2 -Wcast-align -Wconversion -Wsign-conversion -Wnull-dereference -g3 -O0 -c ${file} -o ${workspaceFolder}/build/Debug/${fileBasenameNoExtension}.o && echo 'Build completed successfully'"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "detail": "Compile C++ source file"
+    },
+    {
+      "label": "link",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "echo 'Linking object file...'; g++ ${workspaceFolder}/build/Debug/${fileBasenameNoExtension}.o -o ${workspaceFolder}/build/Debug/outDebug && echo 'Linking completed successfully.'"
+      ],
+      "group": "build",
+      "dependsOn": "build",
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "detail": "Link object file to create executable"
+    }
+  ],
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "cwd": "/home/mugdad/filen/git/DSA/fourth",
+      "program": "/home/mugdad/filen/git/DSA/fourth/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
