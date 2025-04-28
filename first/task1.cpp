@@ -1,6 +1,7 @@
 /*
 Task 1: Find the minimum numeric data in a linear array
-*/                                                                             \
+*/ 
+/*
 #include<iostream>
 
 int add(int a, int b) { return a + b; }
@@ -14,11 +15,12 @@ int main() {
   std::cout << "The sum is: " << add(num1, num2) << std::endl;
   return 0;
 }
+*/
 /*
 Declare a linear array and input numeric data from user. Find the minimum
 numeric data in this array.
 */
-/*
+
 #include <iostream>
 using namespace std;
 
@@ -48,4 +50,3 @@ int main() {
 
   return 0;
 }
-*/
