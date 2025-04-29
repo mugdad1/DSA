@@ -18,9 +18,6 @@ Based on the performed experiment 1, explain how static memory allocation influe
 
 Type your answer inside this box.
 
-
-n
-\
 Questions 2: (2 points)
 
 Execute Program 1, then add 30 more elements in the array by choosing [1]yes for 6 times then press [2]no, to display the elements. Observe the output of the program and explain how does static memory allocation affects the efficiency of the program based on memory allocation and usage.
