@@ -2,8 +2,8 @@
 #include <vector>
 using namespace std;
 
-std::vector<int> game(std::vector<int> list) {
-  std::vector<int> result;
+vector<int> game(vector<int> list) {
+  vector<int> result;
   int n = static_cast<int>(list.size()); // Ensure integer division for size_t
   int lucyIndex = 0, jadeIndex = n - 1;
 
@@ -34,16 +34,16 @@ int main() {
     return 1;
   }
 
-  std::vector<int> list(n);
+  vector<int> list(n);
   cout << "Enter the list of numbers separated by space: ";
   for (int i = 0; i < n; ++i) {
     cin >> list[i];
   }
 
-  std::vector<int> output = game(list);
+  vector<int> output = game(list);
 
   cout << "Output list: [";
-  for (std::vector<int>::size_type i = 0; i < output.size(); ++i) {
+  for (vector<int>::size_type i = 0; i < output.size(); ++i) {
     if (i > 0)
       cout << ", ";
     cout << output[i];

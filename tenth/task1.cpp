@@ -26,6 +26,7 @@ sample input
 */
 #include <iostream>
 #include <vector>
+#include <limits>
 
 using namespace std;
 
@@ -37,7 +38,8 @@ struct Node {
 
 class BST {
 public:
-    int belowAverageCount = 0, aboveAverageCount = 0, minScore = INT_MAX, maxScore = INT_MIN;
+    int belowAverageCount = 0, aboveAverageCount = 0;
+    float minScore = numeric_limits<float>::max(), maxScore = numeric_limits<float>::lowest();
 
     void insert(Node*& root, float data, float avg);
     void countAndMinMax(Node* node, float avg);

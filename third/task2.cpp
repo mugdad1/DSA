@@ -4,8 +4,8 @@ Task: Convert the following program to implement dynamic memory allocation.
 
 #include <cstdlib>
 #include <iostream>
-using std::cout;
-using std::srand;
+using cout;
+using srand;
 
 int largest(int arr[], int n) {
   int i;
@@ -26,7 +26,7 @@ int main()
 
     srand((unsigned)time(0));
     for (int ctr = 0; ctr < N; ctr++) {
-      arr[ctr] = std::rand();
+      arr[ctr] = rand();
       cout << arr[ctr] << " ";
         }
   
