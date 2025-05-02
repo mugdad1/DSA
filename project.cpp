@@ -1,27 +1,29 @@
 #include <iostream>
 #include <string>
 #include <stack>
-
+using namespace std;
 struct Edit {
     enum Type { Insert, Delete };
     Type type;
     int pos;
-    std::string text;
+    string text;
 };
 
 class TextEditor {
 public:
-    void insert(int pos, const std::string& text) {
+    void insert(int pos, const string& text) {
+        if (pos > buffer.size()) return; // Check for valid position
         buffer.insert(pos, text);
         undoStack.push({Edit::Insert, pos, text});
-        redoStack = std::stack<Edit>(); // Clear the redoStack
+        redoStack = stack<Edit>(); // Clear the redoStack
     }
 
     void erase(int pos, int length) {
-        std::string removed = buffer.substr(pos, length);
+        if (pos + length > buffer.size()) return; // Check for valid range
+        string removed = buffer.substr(pos, length);
         buffer.erase(pos, length);
         undoStack.push({Edit::Delete, pos, removed});
-        redoStack = std::stack<Edit>(); // Clear the redoStack
+        redoStack = stack<Edit>(); // Clear the redoStack
     }
 
     void undo() {
@@ -38,13 +40,13 @@ public:
         undoStack.push(e);
     }
 
-    const std::string& getText() const {
+    const string& getText() const {
         return buffer;
     }
 
 private:
-    std::string buffer;
-    std::stack<Edit> undoStack, redoStack;
+    string buffer;
+    stack<Edit> undoStack, redoStack;
 
     void apply(const Edit& e) {
         if (e.type == Edit::Insert) {
@@ -66,25 +68,25 @@ private:
 int main() {
     TextEditor editor;
     editor.insert(0, "Hello");
-    std::cout << "Buffer: " << editor.getText() << std::endl;
+    cout << "Buffer: " << editor.getText() << endl;
 
     editor.insert(5, ", world");
-    std::cout << "Buffer: " << editor.getText() << std::endl;
+    cout << "Buffer: " << editor.getText() << endl;
 
     editor.undo();
-    std::cout << "Buffer: " << editor.getText() << std::endl;
+    cout << "Buffer: " << editor.getText() << endl;
 
     editor.redo();
-    std::cout << "Buffer: " << editor.getText() << std::endl;
+    cout << "Buffer: " << editor.getText() << endl;
 
     editor.erase(0, 5);
-    std::cout << "Buffer: " << editor.getText() << std::endl;
+    cout << "Buffer: " << editor.getText() << endl;
 
     editor.undo();
-    std::cout << "Buffer: " << editor.getText() << std::endl;
+    cout << "Buffer: " << editor.getText() << endl;
 
     editor.redo();
-    std::cout << "Buffer: " << editor.getText() << std::endl;
+    cout << "Buffer: " << editor.getText() << endl;
 
     return 0;
 }
