@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+//
 #define MAX 5
 struct Queue { // define Queue structure
   int front, rear;
